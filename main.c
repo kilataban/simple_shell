@@ -27,7 +27,6 @@ int main(__attribute__((unused))int ac, char *av[])
 		if (!buffcpy)
 			return (-1);
 		strcpy(buffcpy, buffer);
-
 		token = strtok(buffcpy, " \n");
 		while (token)
 		{
@@ -35,10 +34,8 @@ int main(__attribute__((unused))int ac, char *av[])
 			tokens++;
 		}
 		tokens++;
-
-		av = malloc(sizeof(char*) * tokens);
+		av = malloc(sizeof(char *) * tokens);
 		token = strtok(buffer, " \n");
-
 		for (i = 0; token; i++)
 		{
 			av[i] = malloc(sizeof(char) * strlen(token));
