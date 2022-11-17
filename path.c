@@ -43,7 +43,11 @@ char *execu(char *command)
 		free(pathcpy);
 		if (stat(command, &buffer) == 0)
 			return (command);
-		return (NULL);
+		else
+		{
+			perror("./shell");
+			return (NULL);
+		}
 	}
 	return (NULL);
 }

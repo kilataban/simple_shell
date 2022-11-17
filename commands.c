@@ -15,12 +15,13 @@ void command(char *av[])
 		command = av[0];
 		comm = execu(command);
 
+
 		cpid = fork();
 
 		if (cpid == 0)
 		{
 			if (execve(comm, av, NULL) == -1)
-				perror("Error");
+				return;
 		}
 		else
 		{

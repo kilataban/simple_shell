@@ -46,10 +46,7 @@ int main(__attribute__((unused))int ac, char *av[])
 			token = strtok(NULL, " \n");
 		}
 		av[i] = NULL;
-		if (execve(av[0], av, NULL) == -1)
-			perror("./shell");
-		else
-			command(av);
+		command(av);
 	}
 	free(buffcpy);
 	free(buffer);
