@@ -48,7 +48,8 @@ int main(__attribute__((unused))int ac, char *av[])
 		av[i] = NULL;
 		if (execve(av[0], av, NULL) == -1)
 			perror("./shell");
-		command(av);
+		else
+			command(av);
 	}
 	free(buffcpy);
 	free(buffer);
