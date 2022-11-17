@@ -1,12 +1,11 @@
 #include "main.h"
 
 /**
- * path - path to the executable
- * execu - path to the executable
+ * getPath - the path to the command
  * @command: the command
  * Return: 0
  */
-char *execu(char *command)
+char *getPath(char *command)
 {
 	char *path, *pathcpy, *token, *file;
 	int com_len, dir_len;
@@ -18,8 +17,8 @@ char *execu(char *command)
 	{
 		pathcpy = strdup(path);
 		com_len = strlen(command);
-
 		token = strtok(pathcpy, ":");
+
 		while (token)
 		{
 			dir_len = strlen(token);
@@ -43,11 +42,9 @@ char *execu(char *command)
 		free(pathcpy);
 		if (stat(command, &buffer) == 0)
 			return (command);
-		else
-		{
-			perror("./shell");
-			return (NULL);
-		}
+		else if (stat(command, &buffer) == -1)
+			perror("./shell ");
+		return (NULL);
 	}
 	return (NULL);
 }
