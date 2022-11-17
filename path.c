@@ -2,6 +2,7 @@
 
 /**
  * path - path to the executable
+ * execu - path to the executable
  * @command: the command
  * Return: 0
  */

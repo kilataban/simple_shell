@@ -13,7 +13,8 @@ void command(char *av[])
 	if (av)
 	{
 		command = av[0];
-		comm = execu(command);	
+		comm = execu(command);
+
 		cpid = fork();
 
 		if (cpid == 0)

@@ -25,7 +25,6 @@ int main(__attribute__((unused))int ac, char *av[])
 		if (!buffcpy)
 			return (-1);
 		strcpy(buffcpy, buffer);
-
 		token = strtok(buffcpy, " \n");
 		while (token)
 		{
@@ -33,6 +32,9 @@ int main(__attribute__((unused))int ac, char *av[])
 			tokens++;
 		}
 		tokens++;
+
+		av = malloc(sizeof(char *) * tokens);
+		token = strtok(buffer, " \n");
 
 		av = malloc(sizeof(char *) * tokens);
 		token = strtok(buffer, " \n");
@@ -46,8 +48,7 @@ int main(__attribute__((unused))int ac, char *av[])
 		av[i] = NULL;
 		if (execve(av[0], av, NULL) == -1)
 			perror("./shell");
-		else
-			command(av);
+		command(av);
 	}
 	free(buffcpy);
 	free(buffer);
