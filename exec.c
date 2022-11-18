@@ -4,7 +4,7 @@
  * execu - execute the commands
  * @av: the argument
  */
-void execu(char **av)
+void execu(char **av, char *envp[])
 {
 	char *command = NULL;
 	pid_t cpid;
@@ -17,7 +17,7 @@ void execu(char **av)
 
 		if (cpid == 0)
 		{
-			if (execve(command, av, NULL) == -1)
+			if (execve(command, av, envp) == -1)
 				return;
 		}
 		else

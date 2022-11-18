@@ -6,7 +6,7 @@
  * @av: arguments
  * Return: 0
  */
-int main(__attribute__((unused))int ac, char *av[])
+int main(__attribute__((unused))int ac, char *av[], char *envp[])
 {
 	char *prompt = "#cisfun$ ";
 	char *buffer = NULL, *buffcpy = NULL, *token;
@@ -20,6 +20,7 @@ int main(__attribute__((unused))int ac, char *av[])
 		line = getline(&buffer, &n, stdin);
 		if (line == -1)
 			return (-1);
+		
 		buffcpy = malloc(sizeof(char) * line);
 		if (!buffcpy)
 			return (-1);
@@ -42,7 +43,7 @@ int main(__attribute__((unused))int ac, char *av[])
 			token = strtok(NULL, " \n");
 		}
 		av[i] = NULL;
-		execu(av);
+		execu(av, envp);
 	}
 	free(buffcpy);
 	free(buffer);

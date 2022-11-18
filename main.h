@@ -10,7 +10,7 @@
 #include <sys/wait.h>
 #include <stdbool.h>
 
-void execu(char **av);
+void execu(char **av, char *envp[]);
 char *getPath(char *command);
 
 #endif/*MAIN_H*/
