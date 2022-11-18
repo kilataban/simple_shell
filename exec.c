@@ -3,6 +3,7 @@
 /**
  * execu - execute the commands
  * @av: the argument
+ * @envp: the environment
  */
 void execu(char **av, char *envp[])
 {

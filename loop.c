@@ -1,9 +1,9 @@
 #include "main.h"
-
 /**
  * main - control the loop
  * @ac: count
  * @av: arguments
+ * @envp: environment
  * Return: 0
  */
 int main(__attribute__((unused))int ac, char *av[], char *envp[])
@@ -20,7 +20,6 @@ int main(__attribute__((unused))int ac, char *av[], char *envp[])
 		line = getline(&buffer, &n, stdin);
 		if (line == -1)
 			return (-1);
-		
 		buffcpy = malloc(sizeof(char) * line);
 		if (!buffcpy)
 			return (-1);
