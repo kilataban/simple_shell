@@ -8,7 +8,7 @@
  */
 int main(__attribute__((unused))int ac, char *av[], char *envp[])
 {
-	char *prompt = "#cisfun$ ";
+	char *prompt = "/bin/sh ";
 	char *buffer = NULL, *buffcpy = NULL, *token;
 	int tokens = 0, i = 0;
 	ssize_t line;
@@ -23,7 +23,7 @@ int main(__attribute__((unused))int ac, char *av[], char *envp[])
 		buffcpy = malloc(sizeof(char) * line);
 		if (!buffcpy)
 			return (-1);
-		strcpy(buffcpy, buffer);
+		_strcpy(buffcpy, buffer);
 
 		token = strtok(buffer, " \n");
 		while (token)
@@ -37,8 +37,8 @@ int main(__attribute__((unused))int ac, char *av[], char *envp[])
 		token = strtok(buffcpy, " \n");
 		for (i = 0; token; i++)
 		{
-			av[i] = malloc(sizeof(char) * strlen(token));
-			strcpy(av[i], token);
+			av[i] = malloc(sizeof(char) * _strlen(token));
+			_strcpy(av[i], token);
 			token = strtok(NULL, " \n");
 		}
 		av[i] = NULL;
