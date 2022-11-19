@@ -15,18 +15,18 @@ char *getPath(char *command)
 
 	if (path)
 	{
-		pathcpy = strdup(path);
-		com_len = strlen(command);
+		pathcpy = _strdup(path);
+		com_len = _strlen(command);
 		token = strtok(pathcpy, ":");
 
 		while (token)
 		{
-			dir_len = strlen(token);
+			dir_len = _strlen(token);
 			file = malloc(com_len + dir_len + 2);
-			strcpy(file, token);
-			strcat(file, "/");
-			strcat(file, command);
-			strcat(file, "\0");
+			_strcpy(file, token);
+			_strcat(file, "/");
+			_strcat(file, command);
+			_strcat(file, "\0");
 
 			if (stat(file, &buffer) == 0)
 			{
