@@ -5,6 +5,7 @@
  * @str: the string
  * Return: length
  */
+
 int _strlen(char *str)
 {
 	int len;
@@ -13,12 +14,14 @@ int _strlen(char *str)
 		;
 	return (len);
 }
+
 /**
  * _strdup - duplicate string
  * @dest: the string
  * @src: the source
  * Return: 0
  */
+
 char *_strdup(char *str)
 {
 	int i;
@@ -39,6 +42,7 @@ char *_strdup(char *str)
  * @src: the source
  * Return: 0
  */
+
 char *_strcpy(char *dest, char *src)
 {
 	int i;
@@ -50,11 +54,13 @@ char *_strcpy(char *dest, char *src)
 	dest[i] = '\0';
 	return (dest);
 }
+
 /**
  * _strcat - concantenate
  * @str: the strings
  * Return: the string
  */
+
 char *_strcat(char *dest, char *src)
 {
 	int i, j;
